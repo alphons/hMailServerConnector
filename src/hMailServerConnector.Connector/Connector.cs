@@ -24,6 +24,7 @@ namespace hMailServer
 		{
 			Debugger.Launch(); // Remove this for production!!
 		}
+
 		public void OnClientConnect(object oClient, object oResult)
 		{
 			var Client = Marshal.CreateWrapperOfType<object, ClientClass>(oClient);
@@ -44,6 +45,7 @@ namespace hMailServer
 
 			Debug.WriteLine($"OnSMTPData Ip:{Client.IPAddress} From:{Message.FromAddress} To:{Message.Recipients[0].Address}");
 
+			// Some code for testing
 			if (Message.FromAddress.Contains('1'))
 			{
 				Result.Value = 1;
